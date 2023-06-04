@@ -1,0 +1,15 @@
+function printData() {
+  const countries = JSON.parse(this.responseText);
+  countries.forEach((country) => {
+    console.log("Country:", country.name.official);
+    console.log("Region:", country.region);
+    console.log("Subregion:", country.subregion);
+    console.log("Population:", country.population);
+    console.log("--------------------");
+  });
+}
+
+var request = new XMLHttpRequest();
+request.addEventListener("load", printData);
+request.open("GET", "https://restcountries.com/v3.1/all");
+request.send();
